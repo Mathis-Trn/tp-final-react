@@ -10,6 +10,10 @@ const MovieCard = ({ movie }) => {
                 alt={movie.title} 
             />
             <h2 className={styles.title}>{movie.title}</h2>
+            <div className={styles.details}>
+                <span className={styles.rating}>{movie.vote_average}</span>
+                <span className={styles.date}>{movie.release_date}</span>
+            </div>
         </div>
     );
 };

@@ -1,4 +1,7 @@
 .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -6,6 +9,11 @@
     transition: transform 0.2s ease-in-out;
     text-align: center;
     padding: 10px;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-5px);
 }
 
 .image {
@@ -21,10 +29,6 @@
     font-family: 'Roboto', sans-serif;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-}
-
 .adult {
     position: absolute;
     top: 10px;
@@ -35,4 +39,32 @@
     border-radius: 4px;
     font-size: 14px;
     font-weight: bold;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+.rating {
+    font-size: 14px;
+    color: #e4b600;
+    display: flex;
+    align-items: center;
+}
+
+.date {
+    font-size: 14px;
+    color: #666;
+}
+
+.rating::before {
+    content: '⭐';
+    margin-right: 5px;
 }
