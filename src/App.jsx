@@ -1,17 +1,17 @@
 import { Routes, Route } from "react-router";
 import MovieList from './component/pages/MovieList.jsx'
-import { Link } from "react-router";
+import MovieDetail from './component/pages/MovieDetail.jsx'
+import Navbar from "./component/component/Navbar.jsx";
 
 function App() {
 
   return (
     <>
-      <nav>
-        <Link to="/">Accueil</Link>
-      </nav>
+      <Navbar/>
 
       <Routes>
         <Route path="/" element={<MovieList />} />
+        <Route path="/movie/:id" element={<MovieDetail />} />
       </Routes>
     </>
   );

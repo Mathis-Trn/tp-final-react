@@ -12,7 +12,6 @@ const MovieList = () => {
             .then(response => response.json())
             .then(data => {
                 setMovies(data.results);
-                console.log(data.results);
             })
             .catch(error => {
                 console.error("Erreur dans la recherche de film :", error);

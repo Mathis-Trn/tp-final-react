@@ -1,8 +1,15 @@
+import { useNavigate } from 'react-router';
 import styles from './MovieCard.module.css';
 
 const MovieCard = ({ movie }) => {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate(`/movie/${movie.id}`);
+    };
+
     return (
-        <div className={styles.card}>
+        <div className={styles.card} onClick={handleClick}>
             {movie.adult && <span className={styles.adult}>-18</span>}
             <img 
                 className={styles.image}
