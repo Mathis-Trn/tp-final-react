@@ -5,6 +5,7 @@ const Navbar = () => {
     return (
         <nav className={style.navbar}>
             <Link to="/" className={style.link}>Accueil</Link>
+            <Link to="/watchlist" className={style.link}>Ma Watchlist</Link>
         </nav>
     );
 };

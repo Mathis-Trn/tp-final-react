@@ -1,10 +1,12 @@
 import { useParams } from "react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { WatchlistContext } from '../../context/WatchlistProvider.jsx';
 import styles from './MovieDetail.module.css';
 
 const MovieDetail = () => {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
+    const { addMovie } = useContext(WatchlistContext);
     const API_KEY = import.meta.env.VITE_API_KEY;
 
     useEffect(() => {
@@ -12,7 +14,6 @@ const MovieDetail = () => {
             .then(response => response.json())
             .then(data => {
                 setMovie(data);
-                console.log(data);
             })
             .catch(error => {
                 console.error("Erreur dans la recherche de film :", error);
@@ -52,6 +53,7 @@ const MovieDetail = () => {
                     </div>
                 )}
             </div>
+            <button className={styles.addButton} onClick={() => addMovie(movie)}>Ajouter à ma Watchlist</button>
         </div>
     );
 }

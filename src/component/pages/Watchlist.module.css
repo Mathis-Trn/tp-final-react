@@ -1,5 +1,5 @@
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     margin-top: 30px;
     padding: 20px;
@@ -16,48 +16,36 @@
     text-align: center;
 }
 
-.poster {
-    width: 50%;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.overview {
+.emptyMessage {
     font-size: 1.2em;
     margin-bottom: 20px;
+    color: #666;
 }
 
-.details {
-    font-size: 1em;
-    line-height: 1.6;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
 }
 
-.details p {
-    margin: 10px 0;
+.movieCard {
+    position: relative;
 }
 
-.collection {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.collection img {
-    width: 50%;
-    border-radius: 8px;
-    margin-top: 10px;
-}
-
-.addButton {
-    background-color: #007bff;
+.removeButton {
+    background-color: #ff4d4d;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
-    margin-top: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
-.addButton:hover {
-    background-color: #0056b3;
+.removeButton:hover {
+    background-color: #ff1a1a;
 }
