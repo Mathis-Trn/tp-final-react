@@ -61,3 +61,38 @@
 .addButton:hover {
     background-color: #0056b3;
 }
+
+.similarMovies {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.similarMovies h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.movieCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.movieCard .poster {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.movieTitle {
+    font-size: 1em;
+    text-align: center;
+}
