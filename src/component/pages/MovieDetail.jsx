@@ -9,10 +9,19 @@ const MovieDetail = () => {
     const [movie, setMovie] = useState(null);
     const [similarMovies, setSimilarMovies] = useState([]);
     const { addMovie } = useContext(WatchlistContext);
+    const [showPopup, setShowPopup] = useState(false);
     const API_KEY = import.meta.env.VITE_API_KEY;
 
     const handleSimilarMovieClick = (movieId) => {
         navigate(`/movie/${movieId}`);
+    };
+
+    const handleAddMovie = (movie) => {
+        addMovie(movie);
+        setShowPopup(true);
+        setTimeout(() => {
+            setShowPopup(false);
+        }, 3000);
     };
 
     useEffect(() => {
@@ -68,7 +77,14 @@ const MovieDetail = () => {
                     </div>
                 )}
             </div>
-            <button className={styles.addButton} onClick={() => addMovie(movie)}>Ajouter à ma Watchlist</button>
+            <button className={styles.addButton} onClick={() => handleAddMovie(movie)}>
+                Ajouter à ma Watchlist
+            </button>
+            {showPopup && (
+                <div className={styles.popup}>
+                    Film ajouté à votre watchlist!
+                </div>
+            )}
             <div className={styles.similarMovies}>
                 <h2>Films similaires</h2>
                 <div className={styles.grid}>

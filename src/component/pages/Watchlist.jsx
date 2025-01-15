@@ -1,10 +1,19 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { WatchlistContext } from '../../context/WatchlistProvider.jsx';
 import MovieCard from '../component/MovieCard.jsx';
 import style from './Watchlist.module.css';
 
 const Watchlist = () => {
     const { watchlist, removeMovie } = useContext(WatchlistContext);
+    const [showPopup, setShowPopup] = useState(false);
+
+    const handleRemoveMovie = (movieId) => {
+        removeMovie(movieId);
+        setShowPopup(true);
+        setTimeout(() => {
+            setShowPopup(false);
+        }, 3000);
+    };
 
     let emptyWatchlist = "";
 
@@ -20,10 +29,15 @@ const Watchlist = () => {
                 {watchlist.map(movie => (
                     <div key={movie.id} className={style.movieCard}>
                         <MovieCard movie={movie} />
-                        <button className={style.removeButton} onClick={() => removeMovie(movie.id)}>Retirer</button>
+                        <button className={style.removeButton} onClick={() => handleRemoveMovie(movie.id)}>Retirer</button>
                     </div>
                 ))}
             </div>
+            {showPopup && (
+                <div className={style.popup}>
+                    Film retiré de votre watchlist!
+                </div>
+            )}
         </div>
     );
 }
