@@ -21,6 +21,9 @@ const MovieCard = ({ movie }) => {
                 <span className={styles.rating}>{movie.vote_average}</span>
                 <span className={styles.date}>{movie.release_date}</span>
             </div>
+            <div className={styles.detailsButton}>
+                Voir les détails
+            </div>
         </div>
     );
 };
