@@ -1,14 +1,19 @@
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import { useEffect, useState, useContext } from "react";
 import { WatchlistContext } from '../../context/WatchlistProvider.jsx';
 import styles from './MovieDetail.module.css';
 
 const MovieDetail = () => {
+    const navigate = useNavigate();
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
     const [similarMovies, setSimilarMovies] = useState([]);
     const { addMovie } = useContext(WatchlistContext);
     const API_KEY = import.meta.env.VITE_API_KEY;
+
+    const handleSimilarMovieClick = (movieId) => {
+        navigate(`/movie/${movieId}`);
+    };
 
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=fr-FR`)
@@ -68,7 +73,7 @@ const MovieDetail = () => {
                 <h2>Films similaires</h2>
                 <div className={styles.grid}>
                     {similarMovies.map(similarMovie => (
-                        <div key={similarMovie.id} className={styles.movieCard}>
+                        <div key={similarMovie.id} className={styles.movieCard} onClick={() => handleSimilarMovieClick(similarMovie.id)} style={{ cursor: 'pointer' }}>
                             <img className={styles.poster} src={`https://media.themoviedb.org/t/p/w200/${similarMovie.poster_path}`} alt={similarMovie.title} />
                             <h3 className={styles.movieTitle}>{similarMovie.title}</h3>
                         </div>
