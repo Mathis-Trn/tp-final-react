@@ -4,6 +4,7 @@ import MovieDetail from './component/pages/MovieDetail.jsx'
 import Navbar from "./component/component/Navbar.jsx";
 import Watchlist from "./component/pages/Watchlist.jsx";
 import WatchlistProvider from "./context/WatchlistProvider.jsx";
+import Footer from "./component/component/Footer.jsx";
 
 function App() {
 
@@ -17,6 +18,8 @@ function App() {
           <Route path="/movie/:id" element={<MovieDetail />} />
           <Route path="/watchlist" element={<Watchlist />} />
         </Routes>
+
+        <Footer />
       </WatchlistProvider>
     </>
   );
