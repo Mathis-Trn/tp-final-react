@@ -1,9 +1,7 @@
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
-    margin-top: 30px;
     padding: 20px;
-    border-radius: 8px;
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
@@ -12,19 +10,38 @@
 
 .title {
     font-size: 2em;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: center;
 }
 
+.contentWrapper {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.posterContainer {
+    flex: 0 0 auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .poster {
-    width: 50%;
+    width: 100%;
     border-radius: 8px;
-    margin-bottom: 20px;
+}
+
+.detailsContainer {
+    flex: 1;
 }
 
 .overview {
     font-size: 1.2em;
     margin-bottom: 20px;
+    margin-top: 0;
+    line-height: 1.6;
 }
 
 .details {
@@ -32,19 +49,32 @@
     line-height: 1.6;
 }
 
-.details p {
-    margin: 10px 0;
-}
-
 .collection {
-    margin-top: 20px;
+    margin-top: 30px;
     text-align: center;
 }
 
 .collection img {
-    width: 50%;
+    max-width: 300px;
     border-radius: 8px;
     margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .contentWrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .posterContainer {
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .detailsContainer {
+        width: 100%;
+        text-align: center;
+    }
 }
 
 .addButton {

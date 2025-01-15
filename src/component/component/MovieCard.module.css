@@ -69,3 +69,18 @@
     content: '⭐';
     margin-right: 5px;
 }
+
+.detailsButton {
+    background-color: #2196f3;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.detailsButton:hover {
+    background-color: #1976d2;
+}
