@@ -26,13 +26,17 @@
 }
 
 .pagination button {
-    background-color: #007bff;
+    background-color: #2196f3;
     color: white;
     border: none;
     padding: 10px 20px;
     margin: 0 10px;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: #1976d2;
 }
 
 .pagination button:disabled {
@@ -67,4 +71,29 @@
 
 .categories button.active {
     background-color: #666;
+}
+
+.searchBar {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    padding: 0 1rem;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 12px 20px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: #2196f3;
+}
+
+.searchInput::placeholder {
+    color: #999;
 }

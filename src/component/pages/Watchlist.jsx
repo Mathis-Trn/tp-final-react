@@ -35,7 +35,7 @@ const Watchlist = () => {
             </div>
             {showPopup && (
                 <div className={style.popup}>
-                    Film retiré de votre watchlist!
+                    Film retiré de votre watchlist !
                 </div>
             )}
         </div>
