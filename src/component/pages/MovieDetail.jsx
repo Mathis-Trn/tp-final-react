@@ -7,6 +7,7 @@ const MovieDetail = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
+    const [cast, setCast] = useState([]);
     const [similarMovies, setSimilarMovies] = useState([]);
     const { addMovie } = useContext(WatchlistContext);
     const [showPopup, setShowPopup] = useState(false);
@@ -45,6 +46,15 @@ const MovieDetail = () => {
             .catch(error => {
                 console.error("Erreur dans la recherche de films similaires :", error);
             });
+
+        fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}&language=fr-FR`)
+            .then(response => response.json())
+            .then(data => {
+                setCast(data.cast.slice(0, 10));
+            })
+            .catch(error => {
+                console.error("Erreur dans la recherche des acteurs :", error);
+            });
     }, [id]);
 
     if (!movie) {
@@ -81,6 +91,28 @@ const MovieDetail = () => {
                         <p><strong>Pays de production :</strong> {movie.production_countries.map(country => country.name).join(', ')}</p>
                         <p><strong>Langues parlées :</strong> {movie.spoken_languages.map(language => language.name).join(', ')}</p>
                     </div>
+                </div>
+            </div>
+
+            <div className={styles.castSection}>
+                <h2>Distribution principale du film</h2>
+                <div className={styles.castGrid}>
+                    {cast.map(actor => (
+                        <div key={actor.id} className={styles.castCard}>
+                            <img 
+                                src={actor.profile_path 
+                                    ? `https://media.themoviedb.org/t/p/w200/${actor.profile_path}`
+                                    : 'https://via.placeholder.com/200x300?text=No+Image'
+                                } 
+                                alt={actor.name} 
+                                className={styles.actorImage}
+                            />
+                            <div className={styles.actorInfo}>
+                                <h3>{actor.name}</h3>
+                                <p>{actor.character}</p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
 
