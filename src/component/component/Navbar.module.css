@@ -7,7 +7,7 @@
 }
 
 .link {
-    background-color: #007bff;
+    background-color: #2196f3;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -17,4 +17,8 @@
     text-decoration: none;
     display: inline-block;
     font-family: 'Roboto', sans-serif;
+}
+
+.link:hover {
+    background-color: #1976d2;
 }
