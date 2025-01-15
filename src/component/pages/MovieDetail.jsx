@@ -25,6 +25,8 @@ const MovieDetail = () => {
     };
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+
         fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=fr-FR`)
             .then(response => response.json())
             .then(data => {
